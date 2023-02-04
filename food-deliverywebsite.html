@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>my onlinemeal.com</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <style>
+      * {
+         margin: 0;
+         padding: 0;
+      }
+
+      html {
+         scroll-behavior: smooth;
+      }
+
+      /* CSS variables */
+      :root {
+         --navbar-height: 56px;
+      }
+
+      /* NAVIGATION BAR */
+      #navbar {
+         display: flex;
+         align-items: center;
+         position: sticky;
+         top: 0px;
+      }
+
+      #navbar::before {
+         content: "";
+         background-color: black;
+         position: absolute;
+         height: 100%;
+         top: 0px;
+         left: 0px;
+         width: 100%;
+         z-index: -1;
+         opacity: 0.4;
+      }
+
+      /* navigation bar: logo and images */
+      #logo {
+         margin: 10px 34px;
+
+      }
+
+      #logo img {
+         height: 59px;
+         margin: 3px 6px;
+      }
+
+      /* navigation bar: list styling */
+
+      #navbar ul {
+         display: flex;
+      }
+
+      #navbar ul li {
+         list-style: none;
+         margin: 3px;
+
+         font-size: 1.3rem;
+      }
+
+      #navbar ul li a {
+         padding: 3px 22px;
+         display: block;
+         border-radius: 20px;
+         text-decoration: none;
+         color: white;
+      }
+
+      #navbar ul li a:hover {
+         background-color: antiquewhite;
+         color: black;
+
+      }
+
+      /* Home section */
+      #home {
+         display: flex;
+         flex-direction: column;
+         padding: 3px 200px;
+         height: 550px;
+         justify-content: center;
+         align-items: center;
+
+      }
+
+      #home::before {
+         content: "";
+         background: url(https://cdn.pixabay.com/photo/2017/11/29/16/12/berries-2986532__340.jpg) no-repeat center center/cover;
+         position: absolute;
+         height: 650px;
+         width: 100%;
+         top: 0px;
+         left: 0px;
+         z-index: -1;
+         opacity: 0.7;
+      }
+
+      #home h1 {
+         COLOR: black;
+         text-align: center;
+      }
+
+      #home p {
+         color: rgb(5, 5, 5);
+         text-align: center;
+         font-size: 1.5rem;
+      }
+
+      /* utility classes */
+      .h-primary {
+         font-size: 2.8rem;
+         font-family: 'Times New Roman', Times, serif;
+         padding: 12px;
+      }
+
+      .h-secondary {
+         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+         font-size: 2.3rem;
+         padding: 12px;
+      }
+
+      .btn {
+         padding: 6px 20 px;
+         border: 2px solid black;
+         background-color: darkseagreen;
+         color: black;
+         margin: 17px;
+         font-size: 1.1rem;
+         border-radius: 6px;
+         cursor: pointer;
+      }
+
+      .center {
+         text-align: center;
+      }
+
+      /* services section */
+      #services {
+         margin: 34px;
+         display: flex;
+      }
+
+      #services .box {
+         border: 2px solid darkviolet;
+         padding: 14px;
+         margin: 2px 25px;
+         border-radius: 28px;
+         background: linen;
+      }
+
+      #services .box img {
+         height: 160px;
+         margin: auto;
+         display: block;
+      }
+
+      #services .box p {
+         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      }
+
+      /* clients section */
+      #client-section {
+
+         position: relative;
+      }
+
+      #client-section::before {
+         content: "";
+         position: absolute;
+         background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRimX691z5Mpr4ebhaB0HVlBMI_rI2ycbSi5g&usqp=CAU.jpg) no-repeat center center/cover;
+         width: 100%;
+         height: 100%;
+         z-index: -1;
+         opacity: 0.4px;
+      }
+
+      #clients {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+      }
+
+      .client-item {
+         padding: 34px;
+      }
+
+      #clients img {
+         height: 124px;
+      }
+
+      /* contact section */
+      #contact {
+         position: relative;
+      }
+
+      #contact::before {
+         content: "";
+         position: absolute;
+         width: 100%;
+         height: 100%;
+         z-index: -1;
+         opacity: 0.7;
+         background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ67ilMj3r86mi18zXsd9_pBct8gSqiqC85XQ&usqp=CAU.jpg) no-repeat center center/cover;
+      }
+
+      #contact-box {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         padding-bottom: 34px;
+         ;
+      }
+
+      #contact-box input,
+      #contact-box textarea {
+         width: 100%;
+         padding: 0.4rem;
+         border-radius: 9px;
+         font-size: 1.1rem;
+      }
+
+      #contact-box form {
+         width: 40%;
+      }
+
+      #contact-box label {
+         font-size: 1.3rem;
+         font-family: cursive;
+
+      }
+
+      footer {
+         background: black;
+         color: whitesmoke;
+         padding: 9px 20px;
+
+      }
+
+      .btn:hover {
+         background-color: cyan;
+         color: dimgrey;
+
+      }
+
+      /* mobile mode: responsiveness */
+      /* navigation */
+      #navbar {
+         flex-direction: column;
+      }
+
+      #navbar ul li a {
+         font-size: 1rem;
+         padding: 0px 7px;
+         padding-bottom: 8px;
+      }
+
+      /* home section */
+      #home {
+         height: 370px;
+         padding: 3px 68px;
+      }
+
+      #home::before {
+         height: 490px;
+
+      }
+
+      #home p {
+         font-size: 13px;
+
+      }
+
+      /* services section */
+      #services {
+         flex-direction: column;
+      }
+
+      #services .box {
+         padding: 14px;
+         margin: 2px 0px;
+         margin-bottom: 20px;
+      }
+
+      /* clients section */
+      #clients {
+         flex-wrap: wrap;
+      }
+
+      #clients img {
+         width: 60px;
+         padding: 2px 3px;
+         height: auto;
+      }
+
+      /* contact us section */
+      #contact-box {}
+
+      /* footer */
+
+      /* utlity classes */
+      .h-primary {
+         font-size: 26px;
+      }
+
+      .btn {
+         font-size: 13px;
+         padding: 4px 8px;
+      }
+   </style>
+</head>
+
+<body>
+   <nav id="navbar">
+      <div id="logo">
+
+         <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXR7ZfHXPFl3y4kuv8p-oDHvu4njJB1fJSgQ&usqp=CAU.jpg">
+      </div>
+      <ul>
+         <li class="item"><a href="#home">home</a></li>
+         <li class="item"><a href="#services-container">services</a></li>
+         <li class="item"><a href="#client-section">our clients</a></li>
+         <li class="item"><a href="#contact">contact us</a></li>
+
+      </ul>
+
+   </nav>
+   <section id="home">
+      <h1 class="h-primary" align="center"><B>WELCOME TO MYONLINEMEAL</B></h1>
+      <p>
+         Explore the components of back-end development, working
+         with an MVC framework
+         Explore the components of back-end </p>
+      <p>
+         Apply concepts like data types, objects, methods, objectoriented programming,
+         and classes
+      </p>
+      <button class="btn">Order now</button>
+   </section>
+   <hr>
+   <section id="services-container">
+      <h1 class="h-primary center">Our services</h1>
+      <div id="services">
+         <div class="box">
+            <img
+               src="https://www.shutterstock.com/shutterstock/photos/1688526379/display_1500/stock-vector-covid-quarantine-in-the-city-online-delivery-service-concept-online-order-tracking-delivery-1688526379.jpg"
+               alt="" />
+            <h2 class="h-secondary center">food ordering</h2>
+            <p class="center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione, ipsa nesciunt?
+               Vitae recusandae laborum beatae excepturi et omnis nisi hic repellendus! Dolore,
+               iure tempora.</p>
+         </div>
+         <div class="box">
+            <img
+               src="https://previews.123rf.com/images/nadianb/nadianb2205/nadianb220500144/185650122-traditional-italian-pizza-with-salami-cheese-tomatoes-and-basil-.jpg"
+               alt="" />
+            <h2 class="h-secondary center">food catering</h2>
+            <p class="center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione, ipsa nesciunt?
+               Vitae recusandae laborum beatae excepturi et omnis nisi hic repellendus! Dolore,
+               iure tempora.</p>
+         </div>
+         <div class="box">
+            <img src="https://www.shutterstock.com/image-vector/group-friendly-fast-food-meals-600w-112042106.jpg"
+               alt="" />
+            <h2 class="h-secondary center">bulk ordering</h2>
+            <p class="center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione, ipsa nesciunt?
+               Vitae recusandae laborum beatae excepturi omnis nisi hic repellendus! Dolore,
+               iure tempora.</p>
+         </div>
+      </div>
+   </section>
+   </hr>
+   <section id="client-section">
+      <h1 classs="h-primary center" align="center">Our clients</h1>
+      <div id="clients">
+
+         <div class="client-item">
+            <img src="https://i2.wp.com/zeevector.com/wp-content/uploads/Coca-Cola-LOGO-SVG.png?fit=977%2C831&ssl=1.jpg"
+               alt="Our client" />
+         </div>
+         <div class="client-item">
+            <img
+               src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png"
+               alt="">
+         </div>
+
+         <div class="client-item">
+            <img
+               src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Burger_King_logo_%281999%29.svg/2024px-Burger_King_logo_%281999%29.svg.png"
+               alt="Our client" />
+         </div>
+         <div class="client-item">
+            <img src="https://1000logos.net/wp-content/uploads/2019/07/KFC-logo-2006.png" alt="Our client" />
+         </div>
+         <div class="client-item">
+            <img
+               src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Dominos_pizza_logo.svg/2048px-Dominos_pizza_logo.svg.png"
+               alt="Our client" />
+         </div>
+      </div>
+   </section>
+   <section id="contact">
+      <h1 class="h-primary center">Contact us</h1>
+      <div id="contact-box">
+         <form action="">
+            <div class="form-group">
+               <label for="name">Name:</label>
+               <input type="text" name="email" id="name" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+               <label for="name">Email:</label>
+               <input type="Email" name="email" id="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+               <label for="name">Phone no:</label>
+               <input type="phone " name="phone " id="phone" placeholder="Enter your phone no">
+            </div>
+            <div class="form-group">
+               <label for="message">message:</label>
+               <textarea name="message" id="message" cols="30" rows="10"></textarea>
+            </div>
+
+         </form>
+      </div>
+   </section>
+   <footer>
+      <div class="center">
+         copyright &copy; www.Myonlinemeal.com All right reserved!
+      </div>
+   </footer>
+   <script>
+      var element ;
+      element = Document;
+
+      element = document.querySelector("")
+      </script>
+</body>
+
+</html>
